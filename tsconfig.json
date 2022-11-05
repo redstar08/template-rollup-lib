@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2016",
+    "lib": ["es6", "es7", "dom"],
+    "baseUrl": ".",
+    "rootDirs": ["src"],
+    "noImplicitAny": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*", "typings/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "scripts", "examples"]
+}
