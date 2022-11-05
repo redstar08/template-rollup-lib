@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>local-mock-h5</title>
+  </head>
+  <body>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script src="//cdn.jsdelivr.net/npm/vconsole"></script>
+    <script src="http://localhost:3000/local-mock-h5.js"></script>
+    <script>
+      eruda.init({ tool: 'console' })
+      const localMockPlugin = erudaLocalMock(eruda, { proxy: 'http://localhost:8080' })
+      eruda.add(localMockPlugin)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "name": "template-rollup-lib",
+  "version": "1.0.0",
+  "description": "A rollup lib development template.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "lint": "eslint --fix src",
+    "prettier": "prettier --write src",
+    "commitlint": "commitlint --config commitlint.config.js -e -V"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --cache --fix",
+      "git add"
+    ],
+    "*.{json,html,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "template",
+    "rollup",
+    "lib"
+  ],
+  "author": "redstar08",
+  "license": "MIT",
+  "homepage": "https://github.com/redstar08/template-rollup-lib",
+  "repository": "https://github.com/redstar08/template-rollup-lib",
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@rollup/plugin-alias": "^4.0.2",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-eslint": "^9.0.1",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rollup": "^3.2.5",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-filesize": "^9.1.2",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.8.4"
+  }
+}
