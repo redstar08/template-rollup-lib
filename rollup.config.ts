@@ -1,3 +1,4 @@
+import { defineConfig } from 'rollup'
 // yarn add -D @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-alias @rollup/plugin-replace @rollup/plugin-eslint @rollup/plugin-typescript @rollup/plugin-babel rollup-plugin-terser rollup-plugin-clear @rollup/plugin-json
 import alias from '@rollup/plugin-alias'
 import resolve from '@rollup/plugin-node-resolve'
@@ -7,13 +8,13 @@ import eslint from '@rollup/plugin-eslint'
 import babel from '@rollup/plugin-babel'
 import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
-import clear from 'rollup-plugin-clear'
+import clear from 'rollup-plugin-delete'
 import json from '@rollup/plugin-json'
 import filesize from 'rollup-plugin-filesize'
 
-const path = require('path')
-
-import packageJson from './package.json'
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+const packageJson = require('./package.json')
 
 const { name, version, author } = packageJson
 
@@ -25,27 +26,25 @@ const banner =
   ' * Released under the MIT License.\n' +
   ' */'
 
-const projectRootDir = path.resolve(__dirname)
-
-export default {
+export default defineConfig({
   input: 'src/index.ts',
   // 同时打包多种规范的产物
   output: [
     {
-      file: `dist/${name}.js`,
+      file: `dist/lib/${name}.js`,
       format: 'umd',
       name: name,
       banner,
     },
     {
-      file: `dist/${name}.min.js`,
+      file: `dist/lib/${name}.min.js`,
       format: 'umd',
       name: name,
       banner,
       plugins: [terser()],
     },
     {
-      file: `dist/${name}.esm.js`,
+      file: `dist/es/${name}.esm.js`,
       format: 'es',
       name: name,
       banner,
@@ -62,8 +61,8 @@ export default {
     alias({
       entries: [
         {
-          find: '@/',
-          replacement: path.resolve(projectRootDir, 'src/'),
+          find: '@/*',
+          replacement: 'src/*',
           // OR place `customResolver` here. See explanation below.
         },
       ],
@@ -84,4 +83,4 @@ export default {
     babel({ babelHelpers: 'bundled' }),
     filesize(),
   ],
-}
+})
