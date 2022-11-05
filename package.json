@@ -8,6 +8,7 @@
     "lint-staged": "lint-staged",
     "lint": "eslint --fix src",
     "prettier": "prettier --write src",
+    "commit": "cz",
     "commitlint": "commitlint --config commitlint.config.js -e -V"
   },
   "lint-staged": {
@@ -20,6 +21,11 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "keywords": [
     "template",

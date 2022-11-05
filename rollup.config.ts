@@ -25,10 +25,6 @@ const banner =
   ' * Released under the MIT License.\n' +
   ' */'
 
-const customResolver = resolve({
-  extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.scss'],
-})
-
 const projectRootDir = path.resolve(__dirname)
 
 export default {
