@@ -10,7 +10,9 @@
     "lint-staged": "lint-staged",
     "prettier": "prettier --write src",
     "commit": "cz",
-    "commitlint": "commitlint --config commitlint.config.js -e -V"
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "createlog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -57,6 +59,7 @@
     "@typescript-eslint/parser": "^5.42.0",
     "babel-jest": "^29.2.2",
     "commitizen": "^4.2.5",
+    "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
