@@ -2,6 +2,7 @@
 node_modules
 /dist
 .eslintcache
+/coverage
 
 # local env files
 .env.local
